@@ -1,8 +1,6 @@
 -- -----------------RELATORIO 1-----------------
 
-SELECT 
-    e.nome AS "Nome Empregado",
-    e.cpf AS "CPF Empregado",
+SELECT e.nome AS "Nome Empregado", e.cpf AS "CPF Empregado",
     e.dataAdm AS "Data Admissão",
     e.salario AS "Salário",
     d.nome AS "Departamento",
@@ -21,9 +19,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 2-----------------
-SELECT 
-    e.nome AS "Nome Empregado",
-    e.cpf AS "CPF Empregado",
+SELECT e.nome AS "Nome Empregado", e.cpf AS "CPF Empregado",
     e.dataAdm AS "Data Admissão",
     FORMAT(e.salario,2) AS "Salário",
     d.nome AS "Departamento",
@@ -42,9 +38,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 3-----------------
-SELECT 
-    d.nome AS "Departamento",
-    COUNT(e.Departamento_idDepartamento) AS "Quantidade de Empregados",
+SELECT d.nome AS "Departamento", COUNT(e.Departamento_idDepartamento) AS "Quantidade de Empregados",
     FORMAT(AVG(e.salario), 2) AS "Média Salarial",
     FORMAT(AVG(e.comissao), 2) AS "Média da Comissão"
 FROM 
@@ -59,9 +53,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 4-----------------
-SELECT 
-    e.nome AS "Nome Empregado",
-    e.cpf AS "CPF Empregado",
+SELECT e.nome AS "Nome Empregado", e.cpf AS "CPF Empregado",
     e.sexo AS "Sexo",
     FORMAT(e.salario, 2) AS "Salário",
     COUNT(v.idVenda) AS "Quantidade Vendas",
@@ -79,9 +71,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 5-----------------
-SELECT 
-    e.nome AS "Nome Empregado",
-    e.cpf AS "CPF Empregado",
+SELECT e.nome AS "Nome Empregado", e.cpf AS "CPF Empregado",
     e.sexo AS "Sexo",
     FORMAT(e.salario, 2) AS "Salário",
     COUNT(v.idVenda) AS "Quantidade Vendas com Serviço",
@@ -101,9 +91,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 6-----------------
-SELECT 
-    p.nome AS "Nome do Pet",
-    v.data AS "Data do Serviço",
+SELECT p.nome AS "Nome do Pet", v.data AS "Data do Serviço",
     s.nome AS "Nome do Serviço",
     i.quantidade AS "Quantidade",
     FORMAT(i.valor, 2) AS "Valor",
@@ -124,9 +112,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 7-----------------
-SELECT 
-    v.data AS "Data da Venda",
-    FORMAT(v.valor, 2) AS "Valor",
+SELECT v.data AS "Data da Venda", FORMAT(v.valor, 2) AS "Valor",
     FORMAT(v.desconto, 2) AS "Desconto",
     FORMAT(v.valor - COALESCE(v.desconto, 0), 2) AS "Valor Final",
     e.nome AS "Empregado que realizou a Venda"
@@ -140,9 +126,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 8-----------------
-SELECT 
-    s.nome AS "Nome do Serviço",
-    SUM(i.quantidade) AS "Quantidade Vendas",
+SELECT s.nome AS "Nome do Serviço", SUM(i.quantidade) AS "Quantidade Vendas",
     FORMAT(SUM(i.valor * i.quantidade), 2) AS "Total Valor Vendido"
 FROM 
     itensServico i
@@ -158,9 +142,7 @@ LIMIT 10;
 
 
 -- -----------------RELATORIO 9-----------------
-SELECT 
-    f.tipo AS "Tipo Forma Pagamento",
-    COUNT(v.idVenda) AS "Quantidade Vendas",
+SELECT f.tipo AS "Tipo Forma Pagamento", COUNT(v.idVenda) AS "Quantidade Vendas",
     FORMAT(SUM(v.valor),2) AS "Total Valor Vendido"
 FROM 
     FormaPagCompra f
@@ -176,9 +158,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 10-----------------
-SELECT 
-    DATE(v.data) AS "Data Venda",
-    COUNT(v.idVenda) AS "Quantidade de Vendas",
+SELECT DATE(v.data) AS "Data Venda", COUNT(v.idVenda) AS "Quantidade de Vendas",
     SUM(v.valor) AS "Valor Total Venda"
 FROM 
     Venda v
@@ -190,9 +170,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 11-----------------
-SELECT 
-    p.nome AS "Nome Produto",
-    FORMAT(p.valorVenda,2) AS "Valor Produto",
+SELECT p.nome AS "Nome Produto", FORMAT(p.valorVenda,2) AS "Valor Produto",
     p.marca AS "Categoria do Produto",
     f.nome AS "Nome Fornecedor",
     f.email AS "Email Fornecedor",
@@ -214,9 +192,7 @@ ORDER BY
 
 
 -- -----------------RELATORIO 12-----------------
-SELECT 
-    p.nome AS "Nome Produto",
-    COUNT(iv.Produto_idProduto) AS "Quantidade (Total) Vendas",
+SELECT p.nome AS "Nome Produto", COUNT(iv.Produto_idProduto) AS "Quantidade (Total) Vendas",
     SUM(iv.valor) AS "Valor Total Recebido pela Venda do Produto"
 FROM 
     Produtos p
